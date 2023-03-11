@@ -1,84 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-<head>
-<script>
-function calcular() {
-  // Pegar os valores dos inputs
-    var odd1 = parseFloat(document.getElementById("odd1").value);
-      var odd2 = parseFloat(document.getElementById("odd2").value);
+
+  <head>
+    <script>
+      function calcular() {
+        // Pegar os valores dos inputs
+        var odd1 = parseFloat(document.getElementById("odd1").value);
+        var odd2 = parseFloat(document.getElementById("odd2").value);
         var valorTotal = parseFloat(document.getElementById("valorTotal").value);
 
-          // Calcular os valores apostados em cada resultado
-            var valorApostado1 = (odd2 * valorTotal) / (odd1 + odd2);
-              var valorApostado2 = valorTotal - valorApostado1;
+        // Calcular os valores apostados em cada resultado
+        var valorApostado1 = (odd2 * valorTotal) / (odd1 + odd2);
+        var valorApostado2 = valorTotal - valorApostado1;
 
-                // Calcular o lucro em cada resultado
-                  var lucro1 = (valorApostado1 * (odd1 )) ;
-                    var lucro2 = (valorApostado2 * (odd2 ));
+        // Calcular o lucro em cada resultado
+        var lucro1 = (valorApostado1 * (odd1));
+        var lucro2 = (valorApostado2 * (odd2));
 
-                      // Mostrar os resultados na tela
-                        document.getElementById("resultado").innerHTML =
-                            "Valor Apostado no Resultado 1: " + valorApostado1.toFixed(2) + "<br>" +
-                                "Valor Apostado no Resultado 2: " + valorApostado2.toFixed(2) + "<br>" +
-                                    "Lucro no Resultado 1: " + lucro1.toFixed(2) + "<br>" +
-                                        "Lucro no Resultado 2: " + lucro2.toFixed(2);
-                                        }
-                                        </script>
-                                        </head>
-                                        <body>
+        // Mostrar os resultados na tela
+        document.getElementById("resultado").innerHTML =
+          "Valor Apostado no Resultado 1: " + valorApostado1.toFixed(2) + "<br>" +
+          "Valor Apostado no Resultado 2: " + valorApostado2.toFixed(2) + "<br>" +
+          "Lucro no Resultado 1: " + lucro1.toFixed(2) + "<br>" +
+          "Lucro no Resultado 2: " + lucro2.toFixed(2);
+      }
+    </script>
+  </head>
 
-                                        <style>
-                                        * {
-                                          box-sizing: border-box;
-                                            margin: 0;
-                                              padding: 0;
-                                              }
+<body>
 
-                                              h3 {
-                                                text-align: center;
-                                                  font-family: Arial, sans-serif;
-                                                    font-size: 24px;
-                                                      color: white;
-                                                        background-color: green;
-                                                          padding: 10px;
-                                                          }
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-                                                          p {
-                                                            margin: 10px;
-                                                            }
+h3 {
+  margin-top: 20px;
+}
 
-                                                            input {
-                                                              width: 80%;
-                                                              }
+p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-                                                              button {
-                                                                width: 20%;
-                                                                }
+/* Estilos para desktop */
+@media only screen and (min-width: 600px) {
+  /* Alinhar os inputs e labels em uma mesma linha */
+  p {
+    display: flex;
+    justify-content: space-between;
+  }
 
-                                                                div {
-                                                                  border: solid gray;
-                                                                  }
+  input {
+    width: 200px;
+  }
 
-                                                                  #resultado {
-                                                                    margin-top: -1px; /* para remover a borda dupla */
-                                                                    }
-                                                                    </style>
-                                                                    ```
-                                                                    <h3>Calculadora de Arbitragem</h3>
-                                                                    <p>Insira os valores das odds e do valor total que você quer apostar.</p>
-                                                                    <p>Odd do Resultado 1: <input type="number" id="odd1" value="0"></p>
-                                                                    <p>Odd do Resultado 2: <input type="number" id="odd2" value="0"></p>
-                                                                    <p>Valor Total: <input type="number" id="valorTotal" value="0"></p>
-                                                                    <button onclick="calcular()">Calcular</button>
-                                                                    <div id="resultado"></div>
+  button {
+    margin-top: 20px;
+  }
+}
 
-                                                                    </body>
-                                                                    </html>
+/* Estilos para mobile */
+@media only screen and (max-width: 599px) {
+  /* Alinhar os inputs e labels em colunas separadas */
+  p {
+    display: block;
+  }
 
+  input {
+    width: 100%;
+    margin-top: 5px;
+  }
 
-                                                                    
+  button {
+    margin-top: 10px;
+  }
+}
+  </style>
+
+  <h3>Calculadora de Arbitragem</h3>
+  <p>Insira os valores das odds e do valor total que você quer apostar.</p>
+  <p>Odd do Resultado 1: <input type="number" id="odd1" value="0"></p>
+  <p>Odd do Resultado 2: <input type="number" id="odd2" value="0"></p>
+  <p>Valor Total: <input type="number" id="valorTotal" value="0"></p>
+  <button onclick="calcular()">Calcular</button>
+  <div id="resultado"></div>
+
+</body>
+
+</html>
